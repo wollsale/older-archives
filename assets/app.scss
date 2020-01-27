@@ -1,0 +1,34 @@
+// VARIABLES
+$tablet: 1025px;
+$mobile: 411px;
+
+:root {
+    --darkColor : #0C0C0D;
+    --mediumColor : #8E8E99;
+    --lightColor : #FFFFFF;
+}
+
+// HELPERS
+@mixin fontSize($min, $max) {
+    font-size: calc(#{$min}px + (#{$max} - #{$min}) * ((100vw - 411px) / (1920 - 411)));
+}
+
+
+// IMPORT
+@import "scss/reset";
+@import "scss/grid/base", 
+        "scss/grid/header", 
+        "scss/grid/projects";
+@import "scss/parts/header",
+        "scss/parts/projects";
+
+
+// START
+
+body {
+    background: var(--darkColor);
+    font-family: "Helvetica Neue";
+
+    width: 100%;
+    padding-bottom: 150px;
+}

@@ -1,0 +1,29 @@
+// BASE VARIABLES
+:root {
+    --mobileGap : 16px;
+    --defaultGap : 30px;
+    --mobileCols : 1;
+    --defaultCols : 12;
+}
+
+
+.header {
+    @extend %grid;
+    
+    --cols : var(--mobileCols);
+    --gap : var(--mobileGap);
+    @media screen and(min-width: 680px) {
+        --cols : var(--defaultCols);
+        --gap : var(--defaultGap);
+    }
+    
+    &_content {
+        @media screen and(max-width: 680px) {
+            padding-left: var(--mobileGap);
+            padding-right: var(--mobileGap);
+        }
+        @media screen and(min-width: 680px) {
+            grid-column: 2 / 12;
+        }
+    }
+}

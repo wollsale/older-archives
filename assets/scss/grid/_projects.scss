@@ -1,0 +1,76 @@
+// BASE VARIABLES
+:root {
+    --mobileGap : 16px;
+    --defaultGap : 30px;
+    --mobileCols : 1;
+    --defaultCols : 12;
+    --defaultItemCols : 2;
+}
+
+
+// 12-COLUMNS CONTAINER
+.container {
+    @extend %grid;
+    
+    --cols : var(--mobileCols);
+    --gap : var(--mobileGap);
+    @media screen and(min-width: $tablet) {
+        --cols : var(--defaultCols);
+        --gap : var(--defaultGap);
+    }
+}
+
+
+// INNER CONTENT
+.content {    
+    display: grid;
+    grid-row-gap: var(--gap);
+
+    @media screen and(min-width: $tablet) {
+        @include grid-child(2, 12)
+    }
+}
+
+// PROJECTS LIST LAYOUT
+.projects_list {
+    &:nth-child(1n) {
+        @extend %firstLayout;
+    }
+    &:nth-child(2n) {
+        @extend %secondLayout;
+    }
+    &:nth-child(3n) {
+        @extend %thirdLayout;
+    }
+    &:nth-child(4n) {
+        @extend %fourthLayout;
+    }
+}
+
+// PROJECTS LIST
+.projects {
+    &_list {
+        @extend %grid;
+        
+        --cols : var(--mobileCols);
+        --gap : var(--mobileGap);
+        @media screen and(min-width: $tablet) {
+            --cols: var(--defaultItemCols);
+            --gap : var(--defaultGap);
+            grid-auto-rows: 20vh;
+        }
+    }
+
+    &_item {
+        @media screen and(min-width: $tablet) {
+            grid-area: tall;
+
+            &:first-child {
+                grid-area: banner;
+            }
+            &:last-child:not(:first-child) {
+                grid-area: tiny;
+            }
+        }
+    }
+}

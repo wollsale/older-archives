@@ -1,0 +1,74 @@
+// HELPERS
+// EXPEND GRID
+%grid {
+    display: grid;
+    grid-template-columns: repeat(var(--cols), [col] 1fr);
+    grid-column-gap: var(--gap);
+    grid-row-gap: var(--gap);
+}
+
+// LAYOUTS
+// First
+%firstLayout {
+    @media screen and(min-width: $tablet) {
+        grid-template-areas: 
+        "banner banner"
+        "banner banner"
+        "banner banner"
+        "tall empty"
+        "tall empty"
+        "tall tiny"
+        "tall tiny";
+    }
+}
+// Second
+%secondLayout {
+    @media screen and(min-width: $tablet) {
+        grid-template-areas: 
+        "banner banner"
+        "banner banner"
+        "banner banner"
+        "empty tall"
+        "empty tall"
+        "empty tall"
+        "empty tall"
+        "empty tiny"
+        "empty tiny";
+    }
+}
+// Third
+%thirdLayout {
+    @media screen and(min-width: $tablet) {
+        grid-template-areas: 
+        "banner banner"
+        "banner banner"
+        "banner banner"
+        "empty tall"
+        "empty tall"
+        "tiny tall"
+        "tiny tall";
+    }
+}
+// Fourth
+%fourthLayout {
+    @media screen and(min-width: $tablet) {
+        grid-template-areas: 
+        "banner banner"
+        "banner banner"
+        "banner banner"
+        "tall empty"
+        "tall empty"
+        "tall empty"
+        "tall empty"
+        "tiny empty"
+        "tiny empty";
+    }
+}
+
+
+// https://css-tricks.com/browser-compatibility-css-grid-layouts-simple-sass-mixins/
+@mixin grid-child ($col-start, $col-end) {
+    -ms-grid-column: $col-start;
+    -ms-grid-column-span: $col-end - $col-start;
+    grid-column: #{$col-start}/#{$col-end};
+}

@@ -1,0 +1,40 @@
+header {
+    color: var(--lightColor);
+
+    height: 93vh;
+
+    .header_content {
+        margin-top: auto;
+        
+        --marginBottom : 100px;
+        @media screen and (max-width:1440px) {
+            --marginBottom : 50px;
+        }
+        @media screen and (max-width:768px) {
+            --marginBottom : 30px;
+        }
+
+        h2 {
+            font-size: 72px;
+            @include fontSize(36, 144);
+            font-weight: 500;
+            backface-visibility: hidden;
+            
+            margin-bottom: var(--marginBottom);
+        }
+    
+        p {
+            font-size: 36px;
+            @include fontSize(24, 36);
+            font-weight: 400;
+            line-height: 130%;
+            color: var(--mediumColor);
+
+            margin-bottom: var(--marginBottom);
+    
+            span {
+                color: var(--lightColor);
+            }
+        }
+    }
+}
